@@ -1,21 +1,24 @@
 import styled from "styled-components";
 
-import musashiAvatar from "../assets/musashi-avatar.png";
+import musashiAvatar from "../assets/musashi-avatar-far-transparent.png";
 
 const IntroComp = styled.div`
   position: relative;
-  background-color: white;
+  background-color: none;
   display: flex;
 `;
 
 const Image = styled.div`
+  background-color: #fbfbfb;
+  background-position: -5px 0px;
   background-image: url(${musashiAvatar});
   background-size: cover;
   background-repeat: no-repeat;
   width: 150px;
   height: 150px;
   margin-right: 25px;
-  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.5);
+  /* border-radius: 50%; */
 `;
 
 const TextArea = styled.div`
@@ -26,11 +29,45 @@ const TextArea = styled.div`
   font-family: "Raleway", sans-serif;
 `;
 
+const Title = styled.div`
+  font-size: 32px;
+  font-weight: 800;
+  text-shadow: 0px 0px 5px white;
+`;
+
 const Text = styled.p`
   color: black;
   margin: 0;
   padding: 0;
   font-size: 26px;
+  font-weight: 500;
+  text-shadow: 0px 0px 5px white;
+`;
+
+const Button = styled.a.attrs(({ href }) => {
+  return {
+    href,
+    target: "_blank",
+  };
+})`
+  padding: 6px 22px;
+  padding-left: 24px;
+  margin-left: 1px;
+  margin-top: 10px;
+  border: 3px solid black;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: black;
+  letter-spacing: 3px;
+  text-shadow: 0px 0px 5px white;
+
+  transition: background-color 0.3s;
+
+  :hover {
+    background-color: white;
+  }
 `;
 
 const Intro = () => {
@@ -38,9 +75,15 @@ const Intro = () => {
     <IntroComp>
       <Image />
       <TextArea>
-        <Text>Musashi</Text>
+        <Title>Musashi</Title>
         <Text>Simplicity is the standard</Text>
-        <Text>Invite</Text>
+        <Button
+          href={
+            "https://discord.com/api/oauth2/authorize?client_id=887982950560464916&permissions=534760652096&scope=bot"
+          }
+        >
+          INVITE
+        </Button>
       </TextArea>
     </IntroComp>
   );
