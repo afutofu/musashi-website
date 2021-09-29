@@ -1,19 +1,14 @@
 import styled from "styled-components";
 
-import mountains from "../assets/mountains.jpg";
 import Intro from "../components/Intro";
 
 const HomeComp = styled.div`
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(${mountains});
-  background-size: cover;
-  background-repeat: no-repeat;
 `;
 
 const AlphaBackground = styled.div`
