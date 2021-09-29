@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import musashiAvatar from "../assets/musashi-avatar-far-transparent.png";
+import musashiAvatar from "../assets/musashi-avatar-medium.png";
 
 const IntroComp = styled.div`
   position: relative;
@@ -29,7 +29,8 @@ const TextArea = styled.div`
   font-family: "Raleway", sans-serif;
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
+  margin: 0;
   font-size: 32px;
   font-weight: 800;
   text-shadow: 0px 0px 5px white;
