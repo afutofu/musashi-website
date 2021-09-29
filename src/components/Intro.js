@@ -1,4 +1,6 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
+import gsap, { Power3 } from "gsap";
 
 import musashiAvatar from "../assets/musashi-avatar-medium.png";
 
@@ -9,7 +11,7 @@ const IntroComp = styled.div`
 `;
 
 const Image = styled.div`
-  background-color: #fbfbfb;
+  background-color: #f9f9f9;
   background-position: -5px 0px;
   background-image: url(${musashiAvatar});
   background-size: cover;
@@ -17,7 +19,7 @@ const Image = styled.div`
   width: 150px;
   height: 150px;
   margin-right: 25px;
-  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 15px 8px rgba(0, 0, 0, 0.5);
   /* border-radius: 50%; */
 `;
 
@@ -71,9 +73,21 @@ const Button = styled.a.attrs(({ href }) => {
   }
 `;
 
-const Intro = () => {
+const Intro = ({ getIntroTl }) => {
+  let introRef = useRef(null);
+
+  useEffect(() => {
+    const introTl = gsap.timeline();
+    introTl.from(introRef, {
+      opacity: 0,
+      duration: 1.5,
+      ease: Power3.easeInOut,
+    });
+    getIntroTl(introTl);
+  }, [getIntroTl]);
+
   return (
-    <IntroComp>
+    <IntroComp ref={(el) => (introRef = el)}>
       <Image />
       <TextArea>
         <Title>Musashi</Title>

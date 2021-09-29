@@ -1,4 +1,6 @@
+import { useEffect, useState, useRef, useCallback } from "react";
 import styled from "styled-components";
+import gsap from "gsap";
 
 import Intro from "../components/Intro";
 
@@ -22,10 +24,31 @@ const AlphaBackground = styled.div`
 `;
 
 const Home = () => {
+  const [introTl, setIntroTl] = useState(null);
+
+  let alphaBg = useRef(null);
+
+  useEffect(() => {
+    if (!introTl) return;
+    const tl = gsap.timeline();
+    tl.from(alphaBg, {
+      opacity: 1,
+      duration: 3,
+    });
+    tl.delay(2);
+    tl.play();
+    introTl.delay(4);
+    introTl.play();
+  }, [introTl]);
+
+  const getIntroTl = useCallback((tl) => {
+    setIntroTl(tl);
+  }, []);
+
   return (
     <HomeComp>
-      <AlphaBackground />
-      <Intro />
+      <AlphaBackground ref={(el) => (alphaBg = el)} />
+      <Intro getIntroTl={getIntroTl} />
     </HomeComp>
   );
 };
