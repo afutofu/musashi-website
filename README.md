@@ -1,5 +1,7 @@
 # Musashi Website
 
+Website Link: [Musashi](https://musashi-bot.netlify.app/)
+
 Website for my Discord music bot "Musashi".
 
 Technologies used:
