@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import mountains from "./assets/mountains.jpg";
 import Home from "./pages/Home";
+import Commands from "./pages/Commands";
 
 const AppComp = styled.div`
   margin: 0;
@@ -17,6 +18,7 @@ const App = () => {
   return (
     <AppComp>
       <Home />
+      <Commands />
     </AppComp>
   );
 };
