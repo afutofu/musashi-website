@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { useEffect, useState, useRef, useCallback } from "react";
-import gsap from "gsap";
+import { useEffect, useState, useCallback } from "react";
 
 import mountains from "./assets/mountains.jpg";
 import Home from "./pages/Home";
