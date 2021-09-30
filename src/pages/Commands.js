@@ -161,7 +161,7 @@ const Commands = ({ getCommandsTl }) => {
             <CommandItem>loopqueue</CommandItem>
             <CommandItem>noloop</CommandItem>
             <CommandItem>queue</CommandItem>
-            <CommandItem>cleearqueue</CommandItem>
+            <CommandItem>clearqueue</CommandItem>
             <CommandItem>pause</CommandItem>
             <CommandItem>resume</CommandItem>
             <CommandItem>remove</CommandItem>
