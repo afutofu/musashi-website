@@ -35,9 +35,9 @@ const Home = () => {
       opacity: 1,
       duration: 3,
     });
-    tl.delay(2);
+    tl.delay(1);
     tl.play();
-    introTl.delay(4);
+    introTl.delay(2);
     introTl.play();
   }, [introTl]);
 

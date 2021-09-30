@@ -81,7 +81,7 @@ const Intro = ({ getIntroTl }) => {
     introTl.from(introRef, {
       opacity: 0,
       duration: 1.5,
-      ease: Power3.easeInOut,
+      ease: Power3.easeIn,
     });
     getIntroTl(introTl);
   }, [getIntroTl]);
