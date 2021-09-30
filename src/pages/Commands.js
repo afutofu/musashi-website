@@ -1,4 +1,9 @@
+import { useRef, useEffect } from "react";
 import styled from "styled-components";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const CommandsComp = styled.div`
   position: relative;
@@ -112,11 +117,30 @@ const CommandItem = styled.li`
   }
 `;
 
-const Commands = () => {
+const Commands = ({ getCommandsTl }) => {
+  let commandsRef = useRef(null);
+  let textAreaRef = useRef(null);
+
+  useEffect(() => {
+    const commandsTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: commandsRef,
+        start: "top center",
+        toggleActions: "play none none none",
+      },
+    });
+    commandsTl.from(textAreaRef, {
+      opacity: 0,
+      duration: 1.5,
+    });
+    commandsTl.pause();
+    getCommandsTl(commandsTl);
+  }, [getCommandsTl]);
+
   return (
-    <CommandsComp>
+    <CommandsComp ref={(el) => (commandsRef = el)}>
       <AlphaBackground />
-      <TextArea>
+      <TextArea ref={(el) => (textAreaRef = el)}>
         <Title>Commands</Title>
         <CommandCategory>
           <CommandTitle>General</CommandTitle>

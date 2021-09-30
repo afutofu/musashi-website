@@ -80,8 +80,8 @@ const Intro = ({ getIntroTl }) => {
     const introTl = gsap.timeline();
     introTl.from(introRef, {
       opacity: 0,
-      duration: 1.5,
-      ease: Power3.easeIn,
+      duration: 2,
+      ease: Power3.easeInOut,
     });
     getIntroTl(introTl);
   }, [getIntroTl]);

@@ -23,23 +23,23 @@ const AlphaBackground = styled.div`
   opacity: 0.4;
 `;
 
-const Home = () => {
+const Home = ({ getHomeTl }) => {
   const [introTl, setIntroTl] = useState(null);
 
   let alphaBg = useRef(null);
 
   useEffect(() => {
     if (!introTl) return;
-    const tl = gsap.timeline();
-    tl.from(alphaBg, {
+    const homeTl = gsap.timeline();
+    homeTl.from(alphaBg, {
       opacity: 1,
       duration: 3,
+      delay: 1,
     });
-    tl.delay(1);
-    tl.play();
-    introTl.delay(2);
-    introTl.play();
-  }, [introTl]);
+    homeTl.add(introTl, "-=2");
+    homeTl.pause();
+    getHomeTl(homeTl);
+  }, [getHomeTl, introTl]);
 
   const getIntroTl = useCallback((tl) => {
     setIntroTl(tl);

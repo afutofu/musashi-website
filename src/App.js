@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useEffect, useState, useRef, useCallback } from "react";
+import gsap from "gsap";
 
 import mountains from "./assets/mountains.jpg";
 import Home from "./pages/Home";
@@ -15,10 +17,26 @@ const AppComp = styled.div`
 `;
 
 const App = () => {
+  const [homeTl, setHomeTl] = useState(null);
+  const [commandsTl, setCommandsTl] = useState(null);
+
+  useEffect(() => {
+    if (!homeTl || !commandsTl) return;
+    homeTl.play();
+  }, [homeTl, commandsTl]);
+
+  const getHomeTl = useCallback((tl) => {
+    setHomeTl(tl);
+  }, []);
+
+  const getCommandsTl = useCallback((tl) => {
+    setCommandsTl(tl);
+  }, []);
+
   return (
     <AppComp>
-      <Home />
-      <Commands />
+      <Home getHomeTl={getHomeTl} />
+      <Commands getCommandsTl={getCommandsTl} />
     </AppComp>
   );
 };
