@@ -8,6 +8,20 @@ const IntroComp = styled.div`
   position: relative;
   background-color: none;
   display: flex;
+
+  @media only screen and (max-width: 992px) {
+  }
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media only screen and (max-width: 450px) {
+  }
+
+  @media only screen and (max-width: 350px) {
+  }
 `;
 
 const Image = styled.div`
@@ -21,6 +35,20 @@ const Image = styled.div`
   margin-right: 25px;
   box-shadow: 0px 0px 15px 8px rgba(0, 0, 0, 0.5);
   /* border-radius: 50%; */
+
+  @media only screen and (max-width: 992px) {
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin: 0;
+    margin-bottom: 25px;
+  }
+
+  @media only screen and (max-width: 450px) {
+  }
+
+  @media only screen and (max-width: 350px) {
+  }
 `;
 
 const TextArea = styled.div`
@@ -29,6 +57,20 @@ const TextArea = styled.div`
   justify-content: space-evenly;
   align-items: flex-start;
   font-family: "Raleway", sans-serif;
+
+  @media only screen and (max-width: 992px) {
+  }
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media only screen and (max-width: 450px) {
+  }
+
+  @media only screen and (max-width: 350px) {
+  }
 `;
 
 const Title = styled.h1`
@@ -36,6 +78,21 @@ const Title = styled.h1`
   font-size: 32px;
   font-weight: 800;
   text-shadow: 0px 0px 5px white;
+
+  @media only screen and (max-width: 992px) {
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  @media only screen and (max-width: 450px) {
+  }
+
+  @media only screen and (max-width: 350px) {
+    font-size: 28px;
+  }
 `;
 
 const Text = styled.p`
@@ -45,6 +102,21 @@ const Text = styled.p`
   font-size: 26px;
   font-weight: 500;
   text-shadow: 0px 0px 5px white;
+
+  @media only screen and (max-width: 992px) {
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  @media only screen and (max-width: 450px) {
+    font-size: 22px;
+  }
+
+  @media only screen and (max-width: 350px) {
+  }
 `;
 
 const Button = styled.a.attrs(({ href }) => {
@@ -70,6 +142,20 @@ const Button = styled.a.attrs(({ href }) => {
 
   :hover {
     background-color: white;
+  }
+
+  @media only screen and (max-width: 992px) {
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin: 0;
+  }
+
+  @media only screen and (max-width: 450px) {
+    font-size: 12px;
+  }
+
+  @media only screen and (max-width: 350px) {
   }
 `;
 
