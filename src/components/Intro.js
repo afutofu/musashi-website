@@ -5,6 +5,7 @@ import gsap, { Power3 } from "gsap";
 import musashiAvatar from "../assets/musashi-avatar-medium.png";
 
 const IntroComp = styled.div`
+  opacity: 0;
   position: relative;
   background-color: none;
   display: flex;
@@ -164,8 +165,8 @@ const Intro = ({ getIntroTl }) => {
 
   useEffect(() => {
     const introTl = gsap.timeline();
-    introTl.from(introRef, {
-      opacity: 0,
+    introTl.to(introRef, {
+      opacity: 1,
       duration: 2,
       ease: Power3.easeInOut,
     });

@@ -30,6 +30,7 @@ const TextArea = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0;
 `;
 
 const Title = styled.h1`
@@ -129,8 +130,8 @@ const Commands = ({ getCommandsTl }) => {
         toggleActions: "play none none none",
       },
     });
-    commandsTl.from(textAreaRef, {
-      opacity: 0,
+    commandsTl.to(textAreaRef, {
+      opacity: 1,
       duration: 1.5,
     });
     commandsTl.pause();
