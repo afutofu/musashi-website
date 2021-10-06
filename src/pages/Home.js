@@ -20,7 +20,7 @@ const AlphaBackground = styled.div`
   width: 100%;
   height: 100%;
   background-color: white;
-  opacity: 0.4;
+  opacity: 1;
 `;
 
 const Home = ({ getHomeTl }) => {
@@ -31,8 +31,8 @@ const Home = ({ getHomeTl }) => {
   useEffect(() => {
     if (!introTl) return;
     const homeTl = gsap.timeline();
-    homeTl.from(alphaBg, {
-      opacity: 1,
+    homeTl.to(alphaBg, {
+      opacity: 0.4,
       duration: 3,
       delay: 1,
     });
