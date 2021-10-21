@@ -36,7 +36,7 @@ const TextArea = styled.div`
 const Title = styled.h1`
   margin: 0;
   color: white;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 `;
 
 const CommandCategory = styled.div`
@@ -100,6 +100,7 @@ const CommandItem = styled.li`
   margin-bottom: 15px;
   font-weight: 400;
   box-sizing: border-box;
+  list-style: none;
 
   @media only screen and (max-width: 992px) {
     font-size: 18px;
@@ -116,6 +117,11 @@ const CommandItem = styled.li`
   @media only screen and (max-width: 350px) {
     font-size: 12px;
   }
+`;
+
+const Bold = styled.span`
+  font-weight: 700;
+  font-size: 1.1em;
 `;
 
 const Commands = ({ getCommandsTl }) => {
@@ -142,7 +148,12 @@ const Commands = ({ getCommandsTl }) => {
     <CommandsComp ref={(el) => (commandsRef = el)}>
       <AlphaBackground />
       <TextArea ref={(el) => (textAreaRef = el)}>
-        <Title>Commands</Title>
+        <CommandCategory>
+          <Title>Commands</Title>
+          <CommandItem>
+            Prefix each command with <Bold>!</Bold>
+          </CommandItem>
+        </CommandCategory>
         <CommandCategory>
           <CommandTitle>General</CommandTitle>
           <CommandList>
@@ -157,7 +168,7 @@ const Commands = ({ getCommandsTl }) => {
             <CommandItem>play</CommandItem>
             <CommandItem>playbatch</CommandItem>
             <CommandItem>skip</CommandItem>
-            <CommandItem>stop</CommandItem>
+            <CommandItem>leave</CommandItem>
             <CommandItem>loop</CommandItem>
             <CommandItem>loopqueue</CommandItem>
             <CommandItem>noloop</CommandItem>
