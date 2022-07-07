@@ -96,7 +96,23 @@ const Title = styled.h1`
   }
 `;
 
+const TextBox = styled.div`
+  position: relative;
+  width: 305px;
+  height: 30px;
+  margin: 0;
+
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 450px) {
+  }
+`;
+
 const Text = styled.p`
+  opacity: 0;
   color: black;
   margin: 0;
   padding: 0;
@@ -108,8 +124,6 @@ const Text = styled.p`
   }
 
   @media only screen and (max-width: 600px) {
-    margin: 0;
-    margin-bottom: 15px;
   }
 
   @media only screen and (max-width: 450px) {
@@ -162,6 +176,8 @@ const Button = styled.a.attrs(({ href }) => {
 
 const Intro = ({ getIntroTl }) => {
   let introRef = useRef(null);
+  let text1Ref = useRef(null);
+  let text2Ref = useRef(null);
 
   useEffect(() => {
     const introTl = gsap.timeline();
@@ -171,6 +187,16 @@ const Intro = ({ getIntroTl }) => {
       ease: Power3.easeInOut,
     });
     getIntroTl(introTl);
+
+    const textTl = gsap.timeline({ repeat: -1 });
+    textTl
+      .to(text1Ref, { autoAlpha: 1, duration: 2 })
+      .to(text1Ref, { autoAlpha: 1, duration: 3 })
+      .to(text1Ref, { autoAlpha: 0, duration: 1 })
+      .to(text2Ref, { y: -31, duration: 0 })
+      .to(text2Ref, { autoAlpha: 1, duration: 2 })
+      .to(text2Ref, { autoAlpha: 1, duration: 3 })
+      .to(text2Ref, { autoAlpha: 0, duration: 1 });
   }, [getIntroTl]);
 
   return (
@@ -178,7 +204,11 @@ const Intro = ({ getIntroTl }) => {
       <Image />
       <TextArea>
         <Title>Musashi</Title>
-        <Text>Simplicity is the standard</Text>
+        <TextBox>
+          <Text ref={(el) => (text1Ref = el)}>Discord Music Bot</Text>
+          <Text ref={(el) => (text2Ref = el)}>Simplicity is the standard</Text>
+        </TextBox>
+
         <Button
           href={
             "https://discord.com/api/oauth2/authorize?client_id=887982950560464916&permissions=534760652096&scope=bot"
